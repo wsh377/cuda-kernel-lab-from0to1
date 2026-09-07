@@ -1,0 +1,10 @@
+# Compiled binaries and build output
+build/
+*.exe
+
+# Local textbooks and reference files
+resources/*.pdf
+
+# Temporary files
+tmp/
+

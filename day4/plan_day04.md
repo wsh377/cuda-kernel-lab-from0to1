@@ -85,7 +85,7 @@ CUDA Kernel、线程索引、Kernel 启动和 CUDA 内存 API 不属于这本 C+
 
 教材定位：3.1“计算学生成绩”，印刷页 36-42，PDF 约 54-60；A.2“类型”和 A.3“表达式”，印刷页 310-318，PDF 约 328-336。
 
-创建 `day4/numeric_experiments.cpp`，先预测、再运行：
+创建 `day4/src/numeric_experiments.cpp`，先预测、再运行：
 
 ```cpp
 5 / 2
@@ -106,14 +106,14 @@ static_cast<double>(5) / 2
 编译要求：
 
 ```powershell
-g++ -std=c++17 -Wall -Wextra -O0 day4/numeric_experiments.cpp -o output/numeric_experiments.exe
+g++ -std=c++17 -Wall -Wextra -O0 day4/src/numeric_experiments.cpp -o build/day4/numeric_experiments.exe
 ```
 
 ## 六、阶段 C：安全除法（30-40 分钟）
 
 教材定位：3.1.1“检测输入”，印刷页 40；A.3“表达式”，印刷页 316-318。
 
-创建 `day4/safe_division.cpp`：
+创建 `day4/src/safe_division.cpp`：
 
 - 输入两个 `double`。
 - 除数不为零时输出商。
@@ -130,7 +130,7 @@ g++ -std=c++17 -Wall -Wextra -O0 day4/numeric_experiments.cpp -o output/numeric_
 
 教材定位：4.1.4“三种函数参数”，印刷页 59-60，PDF 约 77-78；4.1.5“使用函数来计算学生的成绩”，印刷页 60-61。
 
-创建 `day4/parameter_passing.cpp`，独立重写三个函数：
+创建 `day4/src/parameter_passing.cpp`，独立重写三个函数：
 
 ```cpp
 void by_value(int value);
@@ -153,7 +153,7 @@ void by_const_reference(const int& value);
 
 教材定位：3.2“用中值代替平均值”，印刷页 42-50，PDF 约 60-68；附录 B.2.6“向量（vector）”，印刷页 330-331，PDF 约 348-349。
 
-创建 `day4/vector_basics.cpp`，完成：
+创建 `day4/src/vector_basics.cpp`，完成：
 
 1. 创建一个包含三个 `float` 的向量。
 2. 输出 `size()`，用 `empty()` 判断是否为空。
@@ -176,7 +176,7 @@ void by_const_reference(const int& value);
 
 教材联系：3.2.1“将数据集合存储到向量中”，印刷页 42-44；4.1.4“三种函数参数”，印刷页 59-60。
 
-创建 `day4/vector_add_cpu.cpp`。
+创建 `day4/src/vector_add_cpu.cpp`。
 
 需求：
 
@@ -225,7 +225,7 @@ void vector_add(
 
 教材定位：第10章“管理内存与低级数据结构”，10.1“指针与数组”，印刷页 175-182，PDF 约 193-200。重点阅读 10.1.1“指针”、10.1.3“数组”、10.1.4“指针算术”和 10.1.5“索引”；10.1.2“指向函数的指针”本次只略读，不要求掌握。
 
-创建 `day4/pointer_basics.cpp`，依次验证：
+创建 `day4/src/pointer_basics.cpp`，依次验证：
 
 ```cpp
 float value = 1.0f;
