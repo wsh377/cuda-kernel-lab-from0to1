@@ -1,0 +1,83 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run active file (WSL: C++ / CUDA / Python)",
+            "type": "process",
+            "command": "bash",
+            "args": [
+                "-c",
+                "case \"$1\" in *.cpp) g++ -std=c++17 -Wall -Wextra \"$1\" -o \"$2\" && \"$2\" ;; *.cu) nvcc -std=c++17 -arch=sm_75 -lineinfo \"$1\" -o \"$2\" && \"$2\" ;; *.py) python3 \"$1\" ;; *) echo 'Unsupported file type:' \"$1\"; exit 1 ;; esac",
+                "_",
+                "${file}",
+                "${workspaceFolder}/build/${fileBasenameNoExtension}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "C++ (WSL): build active file",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-std=c++17",
+                "-Wall",
+                "-Wextra",
+                "${file}",
+                "-o",
+                "${workspaceFolder}/build/${fileBasenameNoExtension}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build"
+        },
+        {
+            "label": "C++ (WSL): run active file",
+            "type": "shell",
+            "command": "${workspaceFolder}/build/${fileBasenameNoExtension}",
+            "dependsOrder": "sequence",
+            "dependsOn": "C++ (WSL): build active file",
+            "problemMatcher": []
+        },
+        {
+            "label": "CUDA (WSL): build active file",
+            "type": "shell",
+            "command": "nvcc",
+            "args": [
+                "-std=c++17",
+                "-arch=sm_75",
+                "-lineinfo",
+                "${file}",
+                "-o",
+                "${workspaceFolder}/build/${fileBasenameNoExtension}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build"
+        },
+        {
+            "label": "CUDA (WSL): run active file",
+            "type": "shell",
+            "command": "${workspaceFolder}/build/${fileBasenameNoExtension}",
+            "dependsOrder": "sequence",
+            "dependsOn": "CUDA (WSL): build active file",
+            "problemMatcher": []
+        }
+    ]
+}

@@ -8,3 +8,7 @@ resources/*.pdf
 # Temporary files
 tmp/
 
+# Day 5 local Linux executables
+day5/cuda_environment_check
+day5/cuda_environment_check_default
+day5/src/11_first_kernel

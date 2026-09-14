@@ -30,9 +30,9 @@ int main()
     vector_add(vec1, vec2, result);
 
     std::cout << "向量相加结果："<<std::endl;
-    for(const float& output:result)
+    for(const float& a:result)
     {
-        std::cout << output << " ";
+        std::cout << a << " ";
     }
 
     std::cout << std::endl;
